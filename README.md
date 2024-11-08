@@ -1,3 +1,6 @@
+Homework 7:
+
+
 # Design-Patterns
 
 Design Patterns Implementation: Factory Method & Strategy
@@ -81,3 +84,66 @@ b.Strategy Pattern:
 
 
 link: https://drive.google.com/file/d/1ZVy4lPOKjtQulSNgUDukThTnQ_Pc7ItA/view?usp=sharing
+
+
+
+Homework 12:
+
+
+Project Description:
+Title:Strategy Pattern
+Strategy Design Pattern: Dynamic Fare Calculation
+
+Overview:
+This project demonstrates the use of the Strategy Design Pattern to calculate ride fares dynamically based on different pricing strategies. The pattern allows for flexibility and scalability by enabling the addition of new pricing strategies without modifying existing code.
+
+Components:
+Abstract Base Class (PricingStrategy):
+
+Defines the interface for all pricing strategies.
+Enforces the implementation of calculate_price in all derived classes.
+Concrete Strategies:
+
+RegularPricing: Implements standard fare calculation.
+PremiumPricing: Implements premium fare calculation.
+Context (Ride):
+
+Represents a ride and uses a pricing strategy object to calculate the fare.
+Delegates the fare calculation to the strategy passed during initialization.
+Client:
+
+Chooses the strategy dynamically (e.g., RegularPricing or PremiumPricing) and uses the Ride class to calculate fares.
+Use Case:
+Regular Pricing: Suitable for standard users.
+Premium Pricing: Suitable for users requiring premium services.
+
+Requirements Diagram:
++--------------------+                     +---------------------+
+|      Client        |                     |    Ride             |
+|--------------------|                     |---------------------|
+| - Select Pricing   |                     | - pricing_strategy: |
+|   Strategy         |-------------------> |   PricingStrategy   |
+| - Calculate Fare   |                     |                     |
++--------------------+                     | - calculate_fare()  |
+                                           +---------------------+
+                                                    |
+                                                    v
+                                           +---------------------+
+                                           |   PricingStrategy   |
+                                           | (Abstract Class)    |
+                                           |---------------------|
+                                           | - calculate_price() |
+                                           +---------------------+
+                                                    |
+    +-------------------------------------+----------+-------------------+
+    |                                     |                              |
+    v                                     v                              v
++---------------------+        +---------------------+       +---------------------+
+|   RegularPricing    |        |   PremiumPricing    |       |  (Other Strategies) |
+|---------------------|        |---------------------|       |---------------------|
+| - calculate_price() |        | - calculate_price() |       | - calculate_price() |
++---------------------+        +---------------------+       +---------------------+
+
+
+
+Link: https://drive.google.com/file/d/12nk8_-ZCVNyyiz7hRq-qRxih4MABH0MK/view?usp=sharing
