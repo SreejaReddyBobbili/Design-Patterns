@@ -118,32 +118,43 @@ Regular Pricing: Suitable for standard users.
 Premium Pricing: Suitable for users requiring premium services.
 
 Requirements Diagram:
-+--------------------+                     +---------------------+
-|      Client        |                     |    Ride             |
-|--------------------|                     |---------------------|
-| - Select Pricing   |                     | - pricing_strategy: |
-|   Strategy         |-------------------> |   PricingStrategy   |
-| - Calculate Fare   |                     |                     |
-+--------------------+                     | - calculate_fare()  |
-                                           +---------------------+
-                                                    |
-                                                    v
-                                           +---------------------+
-                                           |   PricingStrategy   |
-                                           | (Abstract Class)    |
-                                           |---------------------|
-                                           | - calculate_price() |
-                                           +---------------------+
-                                                    |
-    +-------------------------------------+----------+-------------------+
-    |                                     |                              |
-    v                                     v                              v
-+---------------------+        +---------------------+       +---------------------+
-|   RegularPricing    |        |   PremiumPricing    |       |  (Other Strategies) |
-|---------------------|        |---------------------|       |---------------------|
-| - calculate_price() |        | - calculate_price() |       | - calculate_price() |
-+---------------------+        +---------------------+       +---------------------+
 
 
++------------------------------------------+
+|           <<requirement>>                |
+|       Select Pricing Strategy            |
+|------------------------------------------|
+| The system shall allow selecting a       |
+| pricing strategy for the ride.           |
++------------------------------------------+
+                  |
+    +-----------------------------------+-----------------------------+
+    |                                                                 |
+    v                                                                 v
++------------------------------------------+      +------------------------------------------+
+|           <<requirement>>                |      |           <<requirement>>                |
+|         Regular Pricing                  |      |         Premium Pricing                  |
+|------------------------------------------|      |------------------------------------------|
+| The system shall calculate fares using   |      | The system shall calculate fares using   |
+| the regular pricing strategy.            |      | the premium pricing strategy.           |
++------------------------------------------+      +------------------------------------------+
 
-Link: https://drive.google.com/file/d/12nk8_-ZCVNyyiz7hRq-qRxih4MABH0MK/view?usp=sharing
++------------------------------------------+
+|           <<requirement>>                |
+|            Calculate Fare                |
+|------------------------------------------|
+| The system shall calculate the fare      |
+| based on the selected pricing strategy   |
+| and distance.                            |
++------------------------------------------+
+                  |
+    +-----------------------------------------+-------------------------+
+    |                                                                   |
+    v                                                                   v
++------------------------------------------+      +------------------------------------------+
+|            <<activity>>                  |      |            <<activity>>                 |
+|        Apply Pricing Strategy            |      |          Compute Fare                   |
+|------------------------------------------|      |------------------------------------------|
+| The system shall apply the selected      |      | The system shall compute the fare based |
+| pricing strategy to calculate the fare.  |      | on the distance traveled.               |
++------------------------------------------+      +------------------------------------------+
