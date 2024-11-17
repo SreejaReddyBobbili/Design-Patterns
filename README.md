@@ -158,3 +158,4 @@ Requirements Diagram:
 | The system shall apply the selected      |      | The system shall compute the fare based |
 | pricing strategy to calculate the fare.  |      | on the distance traveled.               |
 +------------------------------------------+      +------------------------------------------+
+link: https://drive.google.com/file/d/1r1CZZI8UCLMLRgr1Yo9jzgOUX_KzRswR/view?usp=sharing
